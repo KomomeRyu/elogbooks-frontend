@@ -1,12 +1,15 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Update Job(#{{ vm.job.id }})</div>
+    <div class="panel-heading">Update User</div>
     <div class="panel-body">
         <form ng-submit="vm.update()">
-            <input type="hidden" ng-model="vm.job.id">
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" ng-model="vm.job.description" value="{{ vm.job.description }}">
+                <label for="description">Name</label>
+                <input type="text" class="form-control" id="name" ng-model="vm.user.name" placeholder="Name">
             </div>
+            <div class="form-group">
+                    <label for="description">E-Mail</label>
+                    <input type="email" class="form-control" id="email" ng-model="vm.user.email" placeholder="E-Mail">
+                </div>
             <button type="submit" class="btn btn-default">Update</button>
         </form>
     </div>

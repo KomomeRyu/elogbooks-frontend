@@ -1,26 +1,28 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        Jobs ({{ vm.jobCollection.count }})
-        <button class="btn btn-xs btn-primary" ui-sref="jobs.create({id: job.id})">Add New Job</button>
+        Users ({{ vm.userCollection.count }})
+        <button class="btn btn-xs btn-primary" ui-sref="users.create({id: user.id})">Add New User</button>
     </div>
 
     <table class="table table-striped">
         <thead>
         <tr>
             <th>#</th>
-            <th>Description</th>
-            <th>Status</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Assignee</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="job in vm.jobCollection.data">
-            <th scope="row">{{ job.id }}</th>
-            <td>{{ job.description }}</td>
-            <td>{{ job.status == 0 ? 'Open' : 'Closed' }}</td>
+        <tr ng-repeat="user in vm.userCollection.data">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.jobid == 0 ? 'Not assigned' : user.jobid }}</td>
             <td>
-                <button class="btn btn-xs btn-default" ui-sref="jobs.view({id: job.id})">View</button>
-                <button class="btn btn-xs btn-default" ui-sref="jobs.updateform({id: job.id})">Edit</button>
+                <button class="btn btn-xs btn-default" ui-sref="users.view({id: user.id})">View</button>
+                <button class="btn btn-xs btn-default" ui-sref="users.update({id: user.id})">Edit</button>
             </td>
         </tr>
         </tbody>

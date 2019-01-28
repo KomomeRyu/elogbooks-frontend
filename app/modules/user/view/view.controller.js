@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('elogbooks.job')
-        .controller('JobViewController', ['jobResponse', JobViewController]);
+        .module('elogbooks.user')
+        .controller('UserViewController', ['userResponse', UserViewController]);
 
-    function JobViewController(jobResponse) {
+    function UserViewController(userResponse) {
         var vm = this;
-        vm.job = jobResponse;
+        vm.user = userResponse;
     }
 })();

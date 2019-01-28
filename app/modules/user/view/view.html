@@ -1,14 +1,14 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Job (#{{ vm.job.id }})</div>
+    <div class="panel-heading">User (#{{ vm.user.id }})</div>
     <div class="panel-body">
         <dl class="dl-horizontal">
-            <dt>Description</dt>
-            <dd>{{ vm.job.description }}</dd>
+            <dt>Name</dt>
+            <dd>{{ vm.user.name }}</dd>
         </dl>
 
         <dl class="dl-horizontal">
-            <dt>Status</dt>
-            <dd>{{ vm.job.status == 0 ? 'Open' : 'Closed' }}</dd>
+            <dt>E-Mail</dt>
+            <dd>{{ vm.user.email }}</dd>
         </dl>
     </div>
 </div>

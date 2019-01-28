@@ -2,25 +2,25 @@
     'use strict';
 
     angular
-        .module('elogbooks.job', [])
+        .module('elogbooks.user', [])
         .config(registerRoutes);
 
     function registerRoutes($stateProvider) {
         $stateProvider
-            .state('jobs', {
+            .state('users', {
                 abstract: true,
-                url: '/jobs',
+                url: '/users',
                 template: '<ui-view/>'
             })
-            .state('jobs.list', {
+            .state('users.list', {
                 url: '/list',
-                controller: 'JobListController',
+                controller: 'UserListController',
                 controllerAs: 'vm',
-                templateUrl: 'modules/job/list/list.html',
+                templateUrl: 'modules/user/list/list.html',
                 resolve: {
-                    jobCollectionResponse : function ($http) {
+                    userCollectionResponse : function ($http) {
                         return $http({
-                            url: 'http://localhost:8001/job',
+                            url: 'http://localhost:8001/user',
                             method: "GET",
                             params: {}
                         }).then(function (response) {
@@ -31,21 +31,21 @@
                     }
                 }
             })
-            .state('jobs.create', {
+            .state('users.create', {
                 url: '/create',
-                controller: 'JobCreateController',
+                controller: 'UserCreateController',
                 controllerAs: 'vm',
-                templateUrl: 'modules/job/create/create.html',
+                templateUrl: 'modules/user/create/create.html',
             })
-            .state('jobs.view', {
+            .state('users.view', {
                 url: '/view/{id}',
-                controller: 'JobViewController',
+                controller: 'UserViewController',
                 controllerAs: 'vm',
-                templateUrl: 'modules/job/view/view.html',
+                templateUrl: 'modules/user/view/view.html',
                 resolve: {
-                    jobResponse : function ($http, $stateParams) {
+                    userResponse : function ($http, $stateParams) {
                         return $http({
-                            url: 'http://localhost:8001/job/' + $stateParams.id,
+                            url: 'http://localhost:8001/user/' + $stateParams.id,
                             method: "GET"
                         }).then(function (response) {
                             return response.data;
@@ -55,20 +55,20 @@
                     }
                 }
             })
-            .state('jobs.updateform', {
+            .state('users.update', {
                 url: '/update/{id}',
-                controller: 'JobUpdateFormController',
+                controller: 'UserUpdateController',
                 controllerAs: 'vm',
-                templateUrl: 'modules/job/update/updateform.html',
+                templateUrl: 'modules/user/update/updateform.html',
                 resolve: {
-                    jobResult : function ($http, $stateParams) {
+                    userResponse : function ($http, $stateParams) {
                         return $http({
-                            url: 'http://localhost:8001/job/' + $stateParams.id,
+                            url: 'http://localhost:8001/user/' + $stateParams.id,
                             method: "GET"
                         }).then(function (response) {
                             return response.data;
                         }, function () {
-                            console.log('Request Failed');
+                            console.log('Request Failed badly');
                         });
                     }
                 }

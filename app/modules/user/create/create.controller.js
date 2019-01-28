@@ -3,21 +3,23 @@
 
     angular
         .module('elogbooks.job')
-        .controller('JobCreateController', ['$http', '$state', JobCreateController]);
+        .controller('UserCreateController', ['$http', '$state', UserCreateController]);
 
-    function JobCreateController($http, $state) {
+    function UserCreateController($http, $state) {
         var vm = this;
-        vm.job = {
-            description : null
+        vm.user = {
+            name : null,
+            email : null,
+            jobid : 0
         };
         vm.create = create;
 
         function create() {
             $http.post(
-                'http://localhost:8001/job',
-                vm.job
+                'http://localhost:8001/user',
+                vm.user
             ).then(function (response) {
-                $state.go('jobs.view', {id:response.data.id});
+                $state.go('users.view', {id:response.data.id});
             }, function () {
                 console.log('Request Failed');
             });

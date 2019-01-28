@@ -55,20 +55,20 @@
                     }
                 }
             })
-            .state('jobs.updateform', {
+            .state('jobs.update', {
                 url: '/update/{id}',
-                controller: 'JobUpdateFormController',
+                controller: 'JobUpdateController',
                 controllerAs: 'vm',
                 templateUrl: 'modules/job/update/updateform.html',
                 resolve: {
-                    jobResult : function ($http, $stateParams) {
+                    jobResponse : function ($http, $stateParams) {
                         return $http({
                             url: 'http://localhost:8001/job/' + $stateParams.id,
                             method: "GET"
                         }).then(function (response) {
                             return response.data;
                         }, function () {
-                            console.log('Request Failed');
+                            console.log('Request Failed badly');
                         });
                     }
                 }

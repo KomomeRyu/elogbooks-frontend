@@ -52,6 +52,17 @@
                         }, function () {
                             console.log('Request Failed badly');
                         });
+                    },
+                    userResponse : function ($http) {
+                        return $http({
+                            url: 'http://localhost:8001/user',
+                            method: "GET",
+                            params: {}
+                        }).then(function (response) {
+                            return response.data;
+                        }, function () {
+                            console.log('Request Failed users');
+                        });
                     }
                 }
             })
@@ -69,6 +80,35 @@
                             return response.data;
                         }, function () {
                             console.log('Request Failed badly');
+                        });
+                    }
+                }
+            })
+            .state('jobs.assign', {
+                url: '/assign/[{id}',
+                controller: 'JobAssignController',
+                controllerAs: 'vm',
+                templateUrl: 'modules/job/assign/assign.html',
+                resolve: {
+                    jobResponse : function ($http, $stateParams) {
+                        return $http({
+                            url: 'http://localhost:8001/job/' + $stateParams.id,
+                            method: "GET",
+                        }).then(function (response) {
+                            return response.data;
+                        }, function () {
+                            console.log('Request Failed jobs');
+                        });
+                    },
+                    userResponse : function ($http) {
+                        return $http({
+                            url: 'http://localhost:8001/user',
+                            method: "GET",
+                            params: {}
+                        }).then(function (response) {
+                            return response.data;
+                        }, function () {
+                            console.log('Request Failed users');
                         });
                     }
                 }

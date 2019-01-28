@@ -11,4 +11,21 @@
             <dd>{{ vm.job.status == 0 ? 'Open' : 'Closed' }}</dd>
         </dl>
     </div>
+    <h2>Users assigned</h2>
+    <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in vm.users">
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            </tbody>
+    </table>
 </div>

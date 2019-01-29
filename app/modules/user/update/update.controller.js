@@ -8,8 +8,6 @@
     function UserUpdateController($http, $state, userResponse) {
         var vm = this;
         vm.user = userResponse;
-        vm.user.jobid = vm.user.jobId;
-        delete vm.user.jobId;
         vm.update = update;
 
         function update() {

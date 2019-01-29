@@ -53,17 +53,6 @@
                             console.log('Request Failed badly');
                         });
                     },
-                    userResponse : function ($http) {
-                        return $http({
-                            url: 'http://localhost:8001/user',
-                            method: "GET",
-                            params: {}
-                        }).then(function (response) {
-                            return response.data;
-                        }, function () {
-                            console.log('Request Failed users');
-                        });
-                    }
                 }
             })
             .state('jobs.update', {

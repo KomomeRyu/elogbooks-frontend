@@ -52,6 +52,17 @@
                         }, function () {
                             console.log('Request Failed badly');
                         });
+                    },
+                    jobResponse : function ($http) {
+                        return $http({
+                            url: 'http://localhost:8001/job',
+                            method: "GET",
+                            param: {}
+                        }).then(function (response) {
+                            return response.data;
+                        }, function () {
+                            console.log('Request Failed badly');
+                        });
                     }
                 }
             })

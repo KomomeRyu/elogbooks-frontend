@@ -10,7 +10,6 @@
         vm.user = {
             name : null,
             email : null,
-            jobid : 0
         };
         vm.create = create;
 

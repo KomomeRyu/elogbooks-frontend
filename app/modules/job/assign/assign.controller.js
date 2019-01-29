@@ -14,15 +14,14 @@
 
         function assign(){
             var user = JSON.parse(vm.userpick);
-            user.jobid = vm.job.id.toString();
-            var id = user.id;
-            delete user.id;
-            delete user.jobId;
+            vm.job.userid = user.id.toString();
+            var id = vm.job.id;
+            delete vm.job.id;
             $http.put(
-                'http://localhost:8001/user/' + id,
-                user
+                'http://localhost:8001/job/' + id,
+                vm.job
             ).then(function (response) {
-                $state.go('users.view', {id:response.data.id});
+                $state.go('jobs.view', {id:response.data.id});
             }, function () {
                 console.log('Request Failed badly');
             });
